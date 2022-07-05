@@ -17,8 +17,9 @@ app.get("/api/test", (req, res) => {
 app.use(express.static(path.join(__dirname, "./frontend/build")));
 
 app.get("*", function (_, res) {
+  const filePath = "./public/index.html"
   res.sendFile(
-    path.join(__dirname, "./frontend/build/index.html"),
+    path.join(__dirname, filePath),
     function (err) {
       if (err) {
         res.status(500).send(err);
