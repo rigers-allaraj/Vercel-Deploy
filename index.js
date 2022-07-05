@@ -24,13 +24,13 @@ app.get("*", function (req, res) {
   console.log("Test", resolvedPath)
   // const filePath = path.join(__dirname, "./frontend/build/index.html");
   // const resolvedPath = path.resolve(filePath);
-  res.sendFile(filePath, path.join(__dirname, resolvedPath))
-    // function (err) {
-    //   if (err) {
-    //     res.status(500).send(err);
-    //   }
-    // }
-  // );
+  res.sendFile(filePath, path.join(__dirname, resolvedPath)
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
 });
 
 const port = process.env.PORT || 5000;
