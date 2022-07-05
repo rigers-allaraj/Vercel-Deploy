@@ -19,11 +19,11 @@ const resolvedFirstPath = path.resolve(fileFirstPath);
 app.use(express.static(path.join(__dirname, resolvedFirstPath)));
 
 app.get("*", function (req, res) {
-  const filePath = "./frontend/build/index.html";
+  const filePath = "/frontend/build/index.html";
   const resolvedPath = path.resolve(filePath);
   // const filePath = path.join(__dirname, "./frontend/build/index.html");
   // const resolvedPath = path.resolve(filePath);
-  res.sendFile(filePath, path.join(__dirname, resolvedPath)
+  res.sendFile(path.join(__dirname, resolvedPath),
     function (err) {
       if (err) {
         res.status(500).send(err);
