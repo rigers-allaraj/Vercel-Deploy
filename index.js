@@ -18,12 +18,14 @@ const fileFirstPath = "./frontend/build";
 const resolvedFirstPath = path.resolve(fileFirstPath);
 app.use(express.static(path.join(__dirname, resolvedFirstPath)));
 
-app.get("*", function (req, res) {
+app.get("*", (req, res) => {
   // const filePath = "./frontend/build/index.html";
   // const resolvedPath = path.resolve(filePath);
   // const filePath = path.join(__dirname, "./frontend/build/index.html");
   // const resolvedPath = path.resolve(filePath);
-  res.sendFile(path.resolve(__dirname, './frontend/build', 'index.html'),
+
+  // res.sendFile(path.join(__dirname, '/frontend/build', 'index.html'),
+  res.sendFile("./frontend/build/index.html", { root: __dirname };
     function (err) {
       if (err) {
         res.status(500).send(err);
