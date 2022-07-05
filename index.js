@@ -17,7 +17,7 @@ app.get("/api/test", (req, res) => {
 app.use(express.static(path.join(__dirname, "./frontend/build")));
 
 app.get("*", function (_, res) {
-  const filePath = "./public/index.html"
+  const filePath = "./frontend/public/index.html"
   res.sendFile(
     path.join(__dirname, filePath),
     function (err) {
