@@ -23,18 +23,13 @@ app.get("*", (req, res) => {
   // const resolvedPath = path.resolve(filePath);
   // const filePath = path.join(__dirname, "./frontend/build/index.html");
   // const resolvedPath = path.resolve(filePath);
-
-  // res.sendFile(path.join(__dirname, '/frontend/build', 'index.html')
-  if (process.env.NODE_ENV) {
-  res.sendFile(path.join(__dirname, './frontend/build/index.html');
+  res.sendFile(path.join(__dirname, './frontend/build/index.html'),
     function (err) {
       if (err) {
         res.status(500).send(err);
       }
     }
   );
-  }
-
 });
 //     res.sendFile(path.resolve(process.cwd(), 'client/build/index.html'))
 
