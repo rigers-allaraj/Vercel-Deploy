@@ -24,15 +24,20 @@ app.get("*", (req, res) => {
   // const filePath = path.join(__dirname, "./frontend/build/index.html");
   // const resolvedPath = path.resolve(filePath);
 
-  // res.sendFile(path.join(__dirname, '/frontend/build', 'index.html'),
-  res.sendFile("./frontend/build/index.html", { root: __dirname };
+  // res.sendFile(path.join(__dirname, '/frontend/build', 'index.html')
+  if (process.env.NODE_ENV) {
+  res.sendFile(path.resolve(process.cwd(), './frontend/build/index.html');
     function (err) {
       if (err) {
         res.status(500).send(err);
       }
     }
   );
+  }
+
 });
+//     res.sendFile(path.resolve(process.cwd(), 'client/build/index.html'))
+
 // "proxy": "http://localhost:3001"
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
