@@ -18,7 +18,7 @@ const fileFirstPath = "./frontend/build";
 const resolvedFirstPath = path.resolve(fileFirstPath);
 app.use(express.static(path.join(__dirname, resolvedFirstPath)));
 
-app.get("*", function (_, res) {
+app.get("*", function (req, res) {
   const filePath = "./frontend/build/index.html";
   const resolvedPath = path.resolve(filePath);
   res.sendFile(
