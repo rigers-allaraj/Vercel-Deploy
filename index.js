@@ -20,7 +20,6 @@ app.get("*", function (_, res) {
   const filePath = "./frontend/build/index.html"
   res.sendFile(
     path.join(__dirname, filePath),
-    console.log( path.join(__dirname, filePath));
     function (err) {
       if (err) {
         res.status(500).send(err);
