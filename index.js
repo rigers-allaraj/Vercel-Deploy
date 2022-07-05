@@ -19,11 +19,11 @@ const resolvedFirstPath = path.resolve(fileFirstPath);
 app.use(express.static(path.join(__dirname, resolvedFirstPath)));
 
 app.get("*", function (req, res) {
-  const filePath = "/frontend/build/index.html";
-  const resolvedPath = path.resolve(filePath);
+  // const filePath = "./frontend/build/index.html";
+  // const resolvedPath = path.resolve(filePath);
   // const filePath = path.join(__dirname, "./frontend/build/index.html");
   // const resolvedPath = path.resolve(filePath);
-  res.sendFile(path.join(__dirname, resolvedPath),
+  res.sendFile(path.resolve(__dirname, './frontend/build', 'index.html'),
     function (err) {
       if (err) {
         res.status(500).send(err);
@@ -31,8 +31,8 @@ app.get("*", function (req, res) {
     }
   );
 });
-
-const port = process.env.PORT || 5000;
+// "proxy": "http://localhost:3001"
+const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
 
 module.exports = app;
