@@ -24,7 +24,7 @@ app.get("*", function (req, res) {
   res.sendFile(filePath,
     function (err) {
       if (err) {
-        res.status(500).send(err, filePath);
+        res.status(500).send({"Error", err, filePath});
       }
     }
   );
