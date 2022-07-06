@@ -5,6 +5,7 @@ function App() {
     <div className="App">
       <header className="App-header">
           Learning ...
+          <span>vercel --prod</span>
       </header>
     </div>
   );
