@@ -14,9 +14,7 @@ app.get("/api/test", (req, res) => {
   res.send("test");
 });
 
-const fileFirstPath = "./frontend/build";
-const resolvedFirstPath = path.resolve(fileFirstPath);
-app.use(express.static(path.join(__dirname, resolvedFirstPath)));
+app.use(express.static(path.join(__dirname, "./frontend/build")));
 
 app.get("*", (req, res) => {
   // const filePath = "./frontend/build/index.html";
@@ -32,8 +30,24 @@ app.get("*", (req, res) => {
       }
     }
   );
-
 });
+// const fileFirstPath = "./frontend/build";
+// const resolvedFirstPath = path.resolve(fileFirstPath);
+// app.use(express.static(path.join(__dirname, resolvedFirstPath)));
+
+// app.get("*", (req, res) => {
+//   // const filePath = "./frontend/build/index.html";
+//   // const resolvedPath = path.resolve(filePath);
+//   // const filePath = path.join(__dirname, "./frontend/build/index.html");
+//   // const resolvedPath = path.resolve(filePath);
+//   res.sendFile(path.join(__dirname, './frontend/build/index.html'),
+//     function (err) {
+//       if (err) {
+//         res.status(500).send(err);
+//       }
+//     }
+//   );
+// });
 //     res.sendFile(path.resolve(process.cwd(), 'client/build/index.html'))
 
 // "proxy": "http://localhost:3001"
